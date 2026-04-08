@@ -5,7 +5,7 @@ import numpy as np
 
 
 # Folder that contains the .npy files
-DATA_FOLDER = Path(r"D:\Koulutehtävät\super_data1")
+DATA_FOLDER = Path("/projappl/project_2018026/super_data")
 
 # We must use at least 15 random files
 HOW_MANY_FILES = 15
