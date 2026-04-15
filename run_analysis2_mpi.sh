@@ -14,5 +14,9 @@ module load intel-oneapi-compilers-classic/2021.6.0
 module load intel-oneapi-mpi/2021.6.0
 module load python-data
 
-# Run the MPI script with srun using python3
+# Step 1: Copy data to the local fast storage on the compute node ($TMPDIR)
+cp -r /scratch/project_2018026/laurisfolder/super_data $TMPDIR/data
+export DATA_PATH=$TMPDIR/data
+
+# Step 2: Run the MPI script with srun using python3
 srun python3 analysis2_mpi.py

@@ -1,3 +1,4 @@
+import os
 import time
 from pathlib import Path
 import numpy as np
@@ -9,7 +10,12 @@ rank = comm.Get_rank()   # The ID of the current process (0, 1, 2...)
 size = comm.Get_size()   # Total number of processes
 
 # Folder that contains the .npy files (Supercomputer path)
-DATA_FOLDER = Path("/scratch/project_2018026/laurisfolder/super_data")
+# We use expandvars so we can switch between Scratch and TMPDIR easily
+DATA_FOLDER = Path(os.path.expandvars("$DATA_PATH"))
+
+# Fallback in case DATA_PATH is not set
+if not os.getenv("DATA_PATH"):
+    DATA_FOLDER = Path("/scratch/project_2018026/laurisfolder/super_data")
 
 # Workload value (matches your local analysis2.py)
 WORKLOAD = 115
