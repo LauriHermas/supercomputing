@@ -9,7 +9,7 @@ rank = comm.Get_rank()   # The ID of the current process (0, 1, 2...)
 size = comm.Get_size()   # Total number of processes
 
 # Folder that contains the .npy files (Supercomputer path)
-DATA_FOLDER = Path("/projappl/project_2018026/super_data")
+DATA_FOLDER = Path("/scratch/project_2018026/laurisfolder/super_data")
 
 # Workload value (matches your local analysis2.py)
 WORKLOAD = 115
