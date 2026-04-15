@@ -8,8 +8,11 @@
 #SBATCH --mem-per-cpu=1G
 #SBATCH --partition=small
 
-# Load the project's default python environment that includes mpi4py and numpy
+# Clear existing modules and load the specific Intel environment
+module purge
+module load intel-oneapi-compilers-classic/2021.6.0
+module load intel-oneapi-mpi/2021.6.0
 module load python-data
 
-# Run the MPI script with srun
-srun python analysis2_mpi.py
+# Run the MPI script with srun using python3
+srun python3 analysis2_mpi.py
